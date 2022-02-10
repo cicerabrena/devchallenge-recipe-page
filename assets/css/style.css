@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  padding: 1rem;
+  background-color: #fafafa;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #4f4f4f;
+}
+
+main {
+  flex: 1;
+}
+main section.head .container {
+  display: flex;
+  flex-direction: column;
+}
+main section.head .container h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: black;
+}
+main section.head .container p {
+  display: flex;
+  width: 260px;
+  margin-top: 0.5rem;
+  font-size: 0.6rem;
+  font-style: italic;
+}
+main section.head .container p::before {
+  content: url("../images/6dots.svg");
+  height: 60px;
+  padding-right: 0.4rem;
+}
+main section.head .container img {
+  margin-top: 1rem;
+  flex: 1 1 40%;
+}
+main section.info {
+  margin-top: 1.8rem;
+}
+main section.info .container {
+  display: grid;
+  gap: 1.5rem;
+}
+main section.info .container .item {
+  display: flex;
+  align-items: center;
+}
+main section.info .container .item span {
+  font-size: 1rem;
+}
+main section.info .container .item .texts {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.4rem;
+}
+main section.info .container .item .texts small {
+  font-size: 0.5rem;
+  font-weight: 700;
+  color: #bdbdbd;
+  text-transform: uppercase;
+}
+main section.info .container .item .texts p {
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: #333333;
+}
+main section.info .container .item:nth-child(1) {
+  grid-column: 1/span 4;
+}
+main section.info .container .item:nth-child(1) span {
+  color: #f2994a;
+}
+main section.info .container .item:nth-child(1) .texts p {
+  color: #f2994a;
+}
+main section.instructions {
+  margin-top: 2rem;
+  color: #333333;
+}
+main section.instructions h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+main section.instructions .ingredient p {
+  font-family: "Playfair Display", serif;
+  margin: 0.8rem 0 1.5rem 0;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+}
+main section.instructions .ingredient .measurement {
+  margin-bottom: 1rem;
+}
+main section.instructions .ingredient .measurement input[type=checkbox] {
+  --active: #275efe;
+  --active-inner: #fff;
+  --focus: 2px rgba(39, 94, 254, 0.3);
+  --border: #bbc1e1;
+  --border-hover: #275efe;
+  --background: #fff;
+  --disabled: #f6f8ff;
+  --disabled-inner: #e1e6f9;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  transition: box-shadow 0.2s;
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  margin: 0;
+  vertical-align: top;
+  border: 1px solid #828282;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  background: white;
+}
+main section.instructions .ingredient .measurement input[type=checkbox] + label {
+  margin-left: 0.5rem;
+  vertical-align: top;
+  cursor: pointer;
+}
+main section.instructions .ingredient .measurement input[type=checkbox]:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+main section.instructions .ingredient .measurement input[type=checkbox]:checked {
+  background-color: var(--active);
+  border-color: var(--active);
+}
+main section.instructions .ingredient .measurement input[type=checkbox]:checked::after {
+  background-color: var(--active);
+  width: 5px;
+  height: 9px;
+  border: 2px solid var(--active-inner);
+  border-top: 0;
+  border-left: 0;
+  left: 7px;
+  top: 5px;
+  transform: rotate(43deg);
+}
+main section.instructions .ingredient .measurement input[type=checkbox]:focus {
+  box-shadow: 0 0 0 2px rgba(39, 94, 254, 0.25);
+}
+main section.instructions .ingredient .measurement input[type=checkbox]:hover(:not(:checked)) {
+  border-color: var(--active);
+}
+
+footer {
+  height: 20px;
+  text-align: center;
+  color: #828282;
+  font-size: 0.5rem;
+}
+footer a {
+  color: #828282;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */
