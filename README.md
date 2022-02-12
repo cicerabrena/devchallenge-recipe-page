@@ -31,6 +31,7 @@
 ## Overview
 
 ![screenshot](./assets/images/page.png)
+![screenshot](./assets/images/page-mobile.png)
 
 This project was created to improve my ability to create responsive websites.
 
