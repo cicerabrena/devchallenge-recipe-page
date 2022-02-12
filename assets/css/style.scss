@@ -33,10 +33,6 @@ a {
 main {
   flex: 1;
 
-  //display: flex;
-  // align-items: center;
-  // justify-content: center;
-
   section {
     margin-bottom: 2rem;
 
@@ -75,56 +71,6 @@ main {
       }
     }
 
-    &.info {
-      margin-top: 1.8rem;
-
-      .container {
-        display: grid;
-        // grid-template-columns: repeat(4, minmax(auto, 1fr));
-        gap: 1.5rem;
-
-        .item {
-          display: flex;
-          align-items: center;
-
-          span {
-            font-size: 1rem;
-          }
-
-          .texts {
-            display: flex;
-            flex-direction: column;
-            margin-left: 0.4rem;
-
-            small {
-              font-size: 0.5rem;
-              font-weight: 700;
-              color: map-get($map: $colors, $key: "grey.100");
-              text-transform: uppercase;
-            }
-            p {
-              font-size: 0.6rem;
-              font-weight: 500;
-              color: map-get($map: $colors, $key: "grey.500");
-            }
-          }
-
-          &:nth-child(1) {
-            grid-column: 1 / span 4;
-
-            span {
-              color: map-get($map: $colors, $key: "orange.500");
-            }
-            .texts {
-              p {
-                color: map-get($map: $colors, $key: "orange.500");
-              }
-            }
-          }
-        }
-      }
-    }
-
     &.body {
       margin: 2rem 0;
       color: map-get($map: $colors, $key: "grey.500");
@@ -142,78 +88,134 @@ main {
           font-size: 1rem;
         }
 
-        .ingredients {
-          .ingredient {
-            margin-bottom: 2rem;
+        .recipe {
+          display: flex;
+          flex-direction: column;
+          margin-top: 1rem;
 
-            p {
-              font-family: map-get($map: $fonts, $key: "playfair");
-              margin: 0.8rem 0 1.5rem 0;
-              font-size: 1rem;
-              font-weight: 400;
-              font-style: italic;
-            }
+          .info {
 
-            .measurement {
-              margin-bottom: 1rem;
+            .container {
+              display: grid;
+              // grid-template-columns: repeat(4, minmax(auto, 1fr));
+              gap: 1.5rem;
 
-              input[type="checkbox"] {
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                outline: none;
-                position: relative;
-                transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+              .item {
+                display: flex;
+                align-items: center;
 
-                display: inline-block;
-                width: 21px;
-                height: 21px;
-                margin: 0;
-                vertical-align: top;
-                border: 1px solid map-get($map: $colors, $key: "grey.400");
-                border-radius: 0.2rem;
-                cursor: pointer;
-                background: map-get($map: $colors, $key: "white");
-
-                & + label {
-                  margin-left: 0.5rem;
-                  vertical-align: top;
-                  cursor: pointer;
+                span {
+                  font-size: 1rem;
                 }
 
-                &:after {
-                  content: "";
-                  display: block;
-                  position: absolute;
-                  left: 0;
-                  top: 0;
-                  opacity: 0;
-                  transition: transform 0.3s ease, opacity 0.2s;
-                }
+                .texts {
+                  display: flex;
+                  flex-direction: column;
+                  margin-left: 0.4rem;
 
-                &:checked {
-                  background: map-get($map: $colors, $key: "orange.500");
-                  border-color: map-get($map: $colors, $key: "orange.500");
-
-                  &::after {
-                    opacity: 1;
-                    background: map-get($map: $colors, $key: "orange.500");
-                    width: 5px;
-                    height: 7px;
-                    border: 2px solid map-get($map: $colors, $key: "white");
-                    border-top: 0;
-                    border-left: 0;
-                    left: 7px;
-                    top: 3px;
-                    transform: rotate(42deg);
+                  small {
+                    font-size: 0.5rem;
+                    font-weight: 700;
+                    color: map-get($map: $colors, $key: "grey.100");
+                    text-transform: uppercase;
+                  }
+                  p {
+                    font-size: 0.6rem;
+                    font-weight: 500;
+                    color: map-get($map: $colors, $key: "grey.500");
                   }
                 }
 
-                &:focus {
-                  box-shadow: 0 0 0 2px rgba(254, 204, 39, 0.25);
-                }
+                &:nth-child(1) {
+                  grid-column: 1 / span 4;
 
-                &:hover(:not(:checked)) {
-                  border-color: map-get($map: $colors, $key: "orange.500");
+                  span {
+                    color: map-get($map: $colors, $key: "orange.500");
+                  }
+                  .texts {
+                    p {
+                      color: map-get($map: $colors, $key: "orange.500");
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .ingredients {
+            .ingredient {
+              margin-bottom: 2rem;
+
+              p {
+                font-family: map-get($map: $fonts, $key: "playfair");
+                margin: 0.8rem 0 1.5rem 0;
+                font-size: 1rem;
+                font-weight: 400;
+                font-style: italic;
+              }
+
+              .measurement {
+                margin-bottom: 1rem;
+
+                input[type="checkbox"] {
+                  -webkit-appearance: none;
+                  -moz-appearance: none;
+                  outline: none;
+                  position: relative;
+                  transition: background 0.3s, border-color 0.3s,
+                    box-shadow 0.2s;
+
+                  display: inline-block;
+                  width: 21px;
+                  height: 21px;
+                  margin: 0;
+                  vertical-align: top;
+                  border: 1px solid map-get($map: $colors, $key: "grey.400");
+                  border-radius: 0.2rem;
+                  cursor: pointer;
+                  background: map-get($map: $colors, $key: "white");
+
+                  & + label {
+                    margin-left: 0.5rem;
+                    vertical-align: top;
+                    cursor: pointer;
+                  }
+
+                  &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    opacity: 0;
+                    transition: transform 0.3s ease, opacity 0.2s;
+                  }
+
+                  &:checked {
+                    background: map-get($map: $colors, $key: "orange.500");
+                    border-color: map-get($map: $colors, $key: "orange.500");
+
+                    &::after {
+                      opacity: 1;
+                      background: map-get($map: $colors, $key: "orange.500");
+                      width: 5px;
+                      height: 7px;
+                      border: 2px solid map-get($map: $colors, $key: "white");
+                      border-top: 0;
+                      border-left: 0;
+                      left: 7px;
+                      top: 3px;
+                      transform: rotate(42deg);
+                    }
+                  }
+
+                  &:focus {
+                    box-shadow: 0 0 0 2px rgba(254, 204, 39, 0.25);
+                  }
+
+                  &:hover(:not(:checked)) {
+                    border-color: map-get($map: $colors, $key: "orange.500");
+                  }
                 }
               }
             }
@@ -245,7 +247,7 @@ main {
                 border-radius: 5px;
               }
               &::marker {
-                content: counters(listInstructions, '');
+                content: counters(listInstructions, "");
                 font-family: map-get($map: $fonts, $key: "playfair");
                 font-size: 1rem;
                 font-weight: 700;
@@ -264,18 +266,105 @@ main {
       }
     }
   }
+
+  @media (min-width: 768px) {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    section {
+      max-width: 800px;
+
+      &.head {
+        .container {
+          h1 {
+            font-size: 2.5rem;
+          }
+          p {
+            width: 500px;
+            margin-top: 1rem;
+            font-size: .9em;
+          }
+        }
+      }
+
+      &.body {
+        margin: 0;
+        .container {
+          h2 {
+            font-size: 1.4rem;
+          }
+
+          .recipe {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+
+            .info {
+              width: 20%;
+              height: 260px;
+              background: map-get($map: $colors, $key: "white");
+              padding: 2rem;
+              border-radius: 10px;
+              box-shadow: 1px 5px 10px 5px rgb(0 0 0 / 25%);
+
+              .container {
+                gap: 1.8rem;
+
+                .item {
+                  grid-column: 1 / span 4;
+
+                  span {
+                    font-size: 1.1rem;
+                  }
+
+                  .texts {
+                    small {
+                      font-size: 0.6rem;
+                    }
+                    p {
+                      font-size: 0.8rem;
+                    }
+                  }
+                }
+              }
+            }
+
+            .ingredients {
+              width: 70%;
+
+              .ingredient {
+                p {
+                  margin: 1.5rem 0;
+                }
+              }
+            }
+          }
+
+          .instructions {
+            width: 80%;
+          }
+        }
+      }
+    }
+  }
 }
 
 footer {
   flex: 1;
-  // height: 40px;
   padding: 1rem;
   text-align: center;
-  font-size: .8rem;
+  font-size: 0.7rem;
   color: map-get($map: $colors, $key: "grey.400");
 
   a {
     color: map-get($map: $colors, $key: "grey.400");
     font-weight: 700;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 0.8rem;
+    margin-top: 3rem;
   }
 }

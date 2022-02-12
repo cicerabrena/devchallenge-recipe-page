@@ -54,45 +54,6 @@ main section.head .container img {
   margin-top: 1rem;
   flex: 1 1 40%;
 }
-main section.info {
-  margin-top: 1.8rem;
-}
-main section.info .container {
-  display: grid;
-  gap: 1.5rem;
-}
-main section.info .container .item {
-  display: flex;
-  align-items: center;
-}
-main section.info .container .item span {
-  font-size: 1rem;
-}
-main section.info .container .item .texts {
-  display: flex;
-  flex-direction: column;
-  margin-left: 0.4rem;
-}
-main section.info .container .item .texts small {
-  font-size: 0.5rem;
-  font-weight: 700;
-  color: #bdbdbd;
-  text-transform: uppercase;
-}
-main section.info .container .item .texts p {
-  font-size: 0.6rem;
-  font-weight: 500;
-  color: #333333;
-}
-main section.info .container .item:nth-child(1) {
-  grid-column: 1/span 4;
-}
-main section.info .container .item:nth-child(1) span {
-  color: #f2994a;
-}
-main section.info .container .item:nth-child(1) .texts p {
-  color: #f2994a;
-}
 main section.body {
   margin: 2rem 0;
   color: #333333;
@@ -108,20 +69,61 @@ main section.body .container h2 {
 main section.body .container h2 {
   font-size: 1rem;
 }
-main section.body .container .ingredients .ingredient {
+main section.body .container .recipe {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+main section.body .container .recipe .info .container {
+  display: grid;
+  gap: 1.5rem;
+}
+main section.body .container .recipe .info .container .item {
+  display: flex;
+  align-items: center;
+}
+main section.body .container .recipe .info .container .item span {
+  font-size: 1rem;
+}
+main section.body .container .recipe .info .container .item .texts {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.4rem;
+}
+main section.body .container .recipe .info .container .item .texts small {
+  font-size: 0.5rem;
+  font-weight: 700;
+  color: #bdbdbd;
+  text-transform: uppercase;
+}
+main section.body .container .recipe .info .container .item .texts p {
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: #333333;
+}
+main section.body .container .recipe .info .container .item:nth-child(1) {
+  grid-column: 1/span 4;
+}
+main section.body .container .recipe .info .container .item:nth-child(1) span {
+  color: #f2994a;
+}
+main section.body .container .recipe .info .container .item:nth-child(1) .texts p {
+  color: #f2994a;
+}
+main section.body .container .recipe .ingredients .ingredient {
   margin-bottom: 2rem;
 }
-main section.body .container .ingredients .ingredient p {
+main section.body .container .recipe .ingredients .ingredient p {
   font-family: Playfair Display, sans-serif;
   margin: 0.8rem 0 1.5rem 0;
   font-size: 1rem;
   font-weight: 400;
   font-style: italic;
 }
-main section.body .container .ingredients .ingredient .measurement {
+main section.body .container .recipe .ingredients .ingredient .measurement {
   margin-bottom: 1rem;
 }
-main section.body .container .ingredients .ingredient .measurement input[type=checkbox] {
+main section.body .container .recipe .ingredients .ingredient .measurement input[type=checkbox] {
   -webkit-appearance: none;
   -moz-appearance: none;
   outline: none;
@@ -137,12 +139,12 @@ main section.body .container .ingredients .ingredient .measurement input[type=ch
   cursor: pointer;
   background: #ffffff;
 }
-main section.body .container .ingredients .ingredient .measurement input[type=checkbox] + label {
+main section.body .container .recipe .ingredients .ingredient .measurement input[type=checkbox] + label {
   margin-left: 0.5rem;
   vertical-align: top;
   cursor: pointer;
 }
-main section.body .container .ingredients .ingredient .measurement input[type=checkbox]:after {
+main section.body .container .recipe .ingredients .ingredient .measurement input[type=checkbox]:after {
   content: "";
   display: block;
   position: absolute;
@@ -151,11 +153,11 @@ main section.body .container .ingredients .ingredient .measurement input[type=ch
   opacity: 0;
   transition: transform 0.3s ease, opacity 0.2s;
 }
-main section.body .container .ingredients .ingredient .measurement input[type=checkbox]:checked {
+main section.body .container .recipe .ingredients .ingredient .measurement input[type=checkbox]:checked {
   background: #f2994a;
   border-color: #f2994a;
 }
-main section.body .container .ingredients .ingredient .measurement input[type=checkbox]:checked::after {
+main section.body .container .recipe .ingredients .ingredient .measurement input[type=checkbox]:checked::after {
   opacity: 1;
   background: #f2994a;
   width: 5px;
@@ -167,10 +169,10 @@ main section.body .container .ingredients .ingredient .measurement input[type=ch
   top: 3px;
   transform: rotate(42deg);
 }
-main section.body .container .ingredients .ingredient .measurement input[type=checkbox]:focus {
+main section.body .container .recipe .ingredients .ingredient .measurement input[type=checkbox]:focus {
   box-shadow: 0 0 0 2px rgba(254, 204, 39, 0.25);
 }
-main section.body .container .ingredients .ingredient .measurement input[type=checkbox]:hover(:not(:checked)) {
+main section.body .container .recipe .ingredients .ingredient .measurement input[type=checkbox]:hover(:not(:checked)) {
   border-color: #f2994a;
 }
 main section.body .container .instructions ol {
@@ -209,17 +211,84 @@ main section.body a {
   color: #bdbdbd;
   font-style: italic;
 }
+@media (min-width: 768px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  main section {
+    max-width: 800px;
+  }
+  main section.head .container h1 {
+    font-size: 2.5rem;
+  }
+  main section.head .container p {
+    width: 500px;
+    margin-top: 1rem;
+    font-size: 0.9em;
+  }
+  main section.body {
+    margin: 0;
+  }
+  main section.body .container h2 {
+    font-size: 1.4rem;
+  }
+  main section.body .container .recipe {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  main section.body .container .recipe .info {
+    width: 20%;
+    height: 260px;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 1px 5px 10px 5px rgba(0, 0, 0, 0.25);
+  }
+  main section.body .container .recipe .info .container {
+    gap: 1.8rem;
+  }
+  main section.body .container .recipe .info .container .item {
+    grid-column: 1/span 4;
+  }
+  main section.body .container .recipe .info .container .item span {
+    font-size: 1.1rem;
+  }
+  main section.body .container .recipe .info .container .item .texts small {
+    font-size: 0.6rem;
+  }
+  main section.body .container .recipe .info .container .item .texts p {
+    font-size: 0.8rem;
+  }
+  main section.body .container .recipe .ingredients {
+    width: 70%;
+  }
+  main section.body .container .recipe .ingredients .ingredient p {
+    margin: 1.5rem 0;
+  }
+  main section.body .container .instructions {
+    width: 80%;
+  }
+}
 
 footer {
   flex: 1;
   padding: 1rem;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: #828282;
 }
 footer a {
   color: #828282;
   font-weight: 700;
+}
+@media (min-width: 768px) {
+  footer {
+    font-size: 0.8rem;
+    margin-top: 3rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
