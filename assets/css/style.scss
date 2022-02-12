@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap");
 
+@import "variables";
+
 * {
   padding: 0;
   margin: 0;
@@ -16,29 +18,35 @@ body {
 
   padding: 1rem;
 
-  background-color: #fafafa;
+  background-color: map-get($map: $colors, $key: "grey.200");
 
   font-size: 14px;
-  font-family: "Montserrat", sans-serif;
+  font-family: map-get($map: $fonts, $key: "montserrat");
   font-weight: 400;
-  color: #4f4f4f;
+  color: map-get($map: $colors, $key: "grey.300");
+}
+
+a {
+  text-decoration: none;
 }
 
 main {
   flex: 1;
 
-  // display: flex;
+  //display: flex;
   // align-items: center;
   // justify-content: center;
 
   section {
+    margin-bottom: 2rem;
+
     &.head {
       .container {
         display: flex;
         flex-direction: column;
 
         h1 {
-          font-family: "Playfair Display", serif;
+          font-family: map-get($map: $fonts, $key: "playfair");
           font-size: 1.4rem;
           font-weight: 700;
           color: black;
@@ -91,13 +99,13 @@ main {
             small {
               font-size: 0.5rem;
               font-weight: 700;
-              color: #bdbdbd;
+              color: map-get($map: $colors, $key: "grey.100");
               text-transform: uppercase;
             }
             p {
               font-size: 0.6rem;
               font-weight: 500;
-              color: #333333;
+              color: map-get($map: $colors, $key: "grey.500");
             }
           }
 
@@ -105,11 +113,11 @@ main {
             grid-column: 1 / span 4;
 
             span {
-              color: #f2994a;
+              color: map-get($map: $colors, $key: "orange.500");
             }
             .texts {
               p {
-                color: #f2994a;
+                color: map-get($map: $colors, $key: "orange.500");
               }
             }
           }
@@ -117,110 +125,157 @@ main {
       }
     }
 
-    &.instructions {
-      margin-top: 2rem;
+    &.body {
+      margin: 2rem 0;
+      color: map-get($map: $colors, $key: "grey.500");
 
-      color: #333333;
+      .container {
+        margin-bottom: 1.5rem;
 
-      h2 {
-        font-family: "Playfair Display", serif;
-        font-weight: 700;
-      }
-
-      .ingredient {
-        p {
-          font-family: "Playfair Display", serif;
-          margin: 0.8rem 0 1.5rem 0;
-          font-size: 1rem;
-          font-weight: 400;
-          font-style: italic;
+        h1,
+        h2 {
+          font-family: map-get($map: $fonts, $key: "playfair");
+          font-weight: 700;
         }
 
-        .measurement {
-          margin-bottom: 1rem;
+        h2 {
+          font-size: 1rem;
+        }
 
-          input[type="checkbox"] {
-            --active: #275efe;
-            --active-inner: #fff;
-            --focus: 2px rgba(39, 94, 254, 0.3);
-            --border: #bbc1e1;
-            --border-hover: #275efe;
-            --background: #fff;
-            --disabled: #f6f8ff;
-            --disabled-inner: #e1e6f9;
+        .ingredients {
+          .ingredient {
+            margin-bottom: 2rem;
 
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            // outline: none;
-            position: relative;
-            transition: box-shadow .2s;
-
-            display: inline-block;
-            width: 21px;
-            height: 21px;
-            margin: 0;
-            vertical-align: top;
-            border: 1px solid #828282;
-            border-radius: 0.2rem;
-            cursor: pointer;
-            background: white;
-
-            & + label {
-              margin-left: 0.5rem;
-              vertical-align: top;
-              cursor: pointer;
+            p {
+              font-family: map-get($map: $fonts, $key: "playfair");
+              margin: 0.8rem 0 1.5rem 0;
+              font-size: 1rem;
+              font-weight: 400;
+              font-style: italic;
             }
 
-            &:after {
-              content: "";
-              display: block;
-              position: absolute;
-              left: 0;
-              top: 0;
-            }
+            .measurement {
+              margin-bottom: 1rem;
 
-            &:checked {
-              background-color: var(--active);
-              border-color: var(--active);
+              input[type="checkbox"] {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                outline: none;
+                position: relative;
+                transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
 
-              &::after {
-                background-color: var(--active);
-                width: 5px;
-                height: 9px;
-                border: 2px solid var(--active-inner);
-                border-top: 0;
-                border-left: 0;
-                left: 7px;
-                top: 5px;
-                transform: rotate(43deg);
+                display: inline-block;
+                width: 21px;
+                height: 21px;
+                margin: 0;
+                vertical-align: top;
+                border: 1px solid map-get($map: $colors, $key: "grey.400");
+                border-radius: 0.2rem;
+                cursor: pointer;
+                background: map-get($map: $colors, $key: "white");
+
+                & + label {
+                  margin-left: 0.5rem;
+                  vertical-align: top;
+                  cursor: pointer;
+                }
+
+                &:after {
+                  content: "";
+                  display: block;
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  opacity: 0;
+                  transition: transform 0.3s ease, opacity 0.2s;
+                }
+
+                &:checked {
+                  background: map-get($map: $colors, $key: "orange.500");
+                  border-color: map-get($map: $colors, $key: "orange.500");
+
+                  &::after {
+                    opacity: 1;
+                    background: map-get($map: $colors, $key: "orange.500");
+                    width: 5px;
+                    height: 7px;
+                    border: 2px solid map-get($map: $colors, $key: "white");
+                    border-top: 0;
+                    border-left: 0;
+                    left: 7px;
+                    top: 3px;
+                    transform: rotate(42deg);
+                  }
+                }
+
+                &:focus {
+                  box-shadow: 0 0 0 2px rgba(254, 204, 39, 0.25);
+                }
+
+                &:hover(:not(:checked)) {
+                  border-color: map-get($map: $colors, $key: "orange.500");
+                }
               }
-              
             }
-
-            &:focus {
-              box-shadow: 0 0 0 2px rgba(39, 94, 254, .25);
-            }
-
-            &:hover(:not(:checked)) {
-              border-color: var(--active);
-            }
-
           }
         }
+
+        .instructions {
+          ol {
+            padding-left: 1rem;
+            margin-top: 1.3rem;
+            counter-reset: listInstructions;
+
+            li {
+              position: relative;
+              padding-left: 1.4rem;
+              margin-bottom: 1.4rem;
+              line-height: 1.5;
+              counter-increment: listInstructions;
+
+              &::before {
+                content: "";
+                width: 25px;
+                height: 25px;
+                position: absolute;
+                top: 2px;
+                left: -15px;
+                background-color: map-get($map: $colors, $key: "orange.500");
+                z-index: -1;
+                border-radius: 5px;
+              }
+              &::marker {
+                content: counters(listInstructions, '');
+                font-family: map-get($map: $fonts, $key: "playfair");
+                font-size: 1rem;
+                font-weight: 700;
+                color: map-get($map: $colors, $key: "white");
+              }
+            }
+          }
+        }
+      }
+
+      a {
+        margin-top: 1rem;
+        font-size: 0.7rem;
+        color: map-get($map: $colors, $key: "grey.100");
+        font-style: italic;
       }
     }
   }
 }
 
 footer {
-  height: 20px;
+  flex: 1;
+  // height: 40px;
+  padding: 1rem;
   text-align: center;
-  color: #828282;
-  font-size: 0.5rem;
+  font-size: .8rem;
+  color: map-get($map: $colors, $key: "grey.400");
 
   a {
-    color: #828282;
+    color: map-get($map: $colors, $key: "grey.400");
     font-weight: 700;
-    text-decoration: none;
   }
 }

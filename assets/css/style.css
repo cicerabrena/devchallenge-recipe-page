@@ -13,20 +13,27 @@ body {
   padding: 1rem;
   background-color: #fafafa;
   font-size: 14px;
-  font-family: "Montserrat", sans-serif;
+  font-family: Montserrat, sans-serif;
   font-weight: 400;
   color: #4f4f4f;
 }
 
+a {
+  text-decoration: none;
+}
+
 main {
   flex: 1;
+}
+main section {
+  margin-bottom: 2rem;
 }
 main section.head .container {
   display: flex;
   flex-direction: column;
 }
 main section.head .container h1 {
-  font-family: "Playfair Display", serif;
+  font-family: Playfair Display, sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
   color: black;
@@ -86,37 +93,40 @@ main section.info .container .item:nth-child(1) span {
 main section.info .container .item:nth-child(1) .texts p {
   color: #f2994a;
 }
-main section.instructions {
-  margin-top: 2rem;
+main section.body {
+  margin: 2rem 0;
   color: #333333;
 }
-main section.instructions h2 {
-  font-family: "Playfair Display", serif;
+main section.body .container {
+  margin-bottom: 1.5rem;
+}
+main section.body .container h1,
+main section.body .container h2 {
+  font-family: Playfair Display, sans-serif;
   font-weight: 700;
 }
-main section.instructions .ingredient p {
-  font-family: "Playfair Display", serif;
+main section.body .container h2 {
+  font-size: 1rem;
+}
+main section.body .container .ingredients .ingredient {
+  margin-bottom: 2rem;
+}
+main section.body .container .ingredients .ingredient p {
+  font-family: Playfair Display, sans-serif;
   margin: 0.8rem 0 1.5rem 0;
   font-size: 1rem;
   font-weight: 400;
   font-style: italic;
 }
-main section.instructions .ingredient .measurement {
+main section.body .container .ingredients .ingredient .measurement {
   margin-bottom: 1rem;
 }
-main section.instructions .ingredient .measurement input[type=checkbox] {
-  --active: #275efe;
-  --active-inner: #fff;
-  --focus: 2px rgba(39, 94, 254, 0.3);
-  --border: #bbc1e1;
-  --border-hover: #275efe;
-  --background: #fff;
-  --disabled: #f6f8ff;
-  --disabled-inner: #e1e6f9;
+main section.body .container .ingredients .ingredient .measurement input[type=checkbox] {
   -webkit-appearance: none;
   -moz-appearance: none;
+  outline: none;
   position: relative;
-  transition: box-shadow 0.2s;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
   display: inline-block;
   width: 21px;
   height: 21px;
@@ -125,52 +135,91 @@ main section.instructions .ingredient .measurement input[type=checkbox] {
   border: 1px solid #828282;
   border-radius: 0.2rem;
   cursor: pointer;
-  background: white;
+  background: #ffffff;
 }
-main section.instructions .ingredient .measurement input[type=checkbox] + label {
+main section.body .container .ingredients .ingredient .measurement input[type=checkbox] + label {
   margin-left: 0.5rem;
   vertical-align: top;
   cursor: pointer;
 }
-main section.instructions .ingredient .measurement input[type=checkbox]:after {
+main section.body .container .ingredients .ingredient .measurement input[type=checkbox]:after {
   content: "";
   display: block;
   position: absolute;
   left: 0;
   top: 0;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.2s;
 }
-main section.instructions .ingredient .measurement input[type=checkbox]:checked {
-  background-color: var(--active);
-  border-color: var(--active);
+main section.body .container .ingredients .ingredient .measurement input[type=checkbox]:checked {
+  background: #f2994a;
+  border-color: #f2994a;
 }
-main section.instructions .ingredient .measurement input[type=checkbox]:checked::after {
-  background-color: var(--active);
+main section.body .container .ingredients .ingredient .measurement input[type=checkbox]:checked::after {
+  opacity: 1;
+  background: #f2994a;
   width: 5px;
-  height: 9px;
-  border: 2px solid var(--active-inner);
+  height: 7px;
+  border: 2px solid #ffffff;
   border-top: 0;
   border-left: 0;
   left: 7px;
-  top: 5px;
-  transform: rotate(43deg);
+  top: 3px;
+  transform: rotate(42deg);
 }
-main section.instructions .ingredient .measurement input[type=checkbox]:focus {
-  box-shadow: 0 0 0 2px rgba(39, 94, 254, 0.25);
+main section.body .container .ingredients .ingredient .measurement input[type=checkbox]:focus {
+  box-shadow: 0 0 0 2px rgba(254, 204, 39, 0.25);
 }
-main section.instructions .ingredient .measurement input[type=checkbox]:hover(:not(:checked)) {
-  border-color: var(--active);
+main section.body .container .ingredients .ingredient .measurement input[type=checkbox]:hover(:not(:checked)) {
+  border-color: #f2994a;
+}
+main section.body .container .instructions ol {
+  padding-left: 1rem;
+  margin-top: 1.3rem;
+  counter-reset: listInstructions;
+}
+main section.body .container .instructions ol li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 1.4rem;
+  line-height: 1.5;
+  counter-increment: listInstructions;
+}
+main section.body .container .instructions ol li::before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 2px;
+  left: -15px;
+  background-color: #f2994a;
+  z-index: -1;
+  border-radius: 5px;
+}
+main section.body .container .instructions ol li::marker {
+  content: counters(listInstructions, "");
+  font-family: Playfair Display, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+main section.body a {
+  margin-top: 1rem;
+  font-size: 0.7rem;
+  color: #bdbdbd;
+  font-style: italic;
 }
 
 footer {
-  height: 20px;
+  flex: 1;
+  padding: 1rem;
   text-align: center;
+  font-size: 0.8rem;
   color: #828282;
-  font-size: 0.5rem;
 }
 footer a {
   color: #828282;
   font-weight: 700;
-  text-decoration: none;
 }
 
 /*# sourceMappingURL=style.css.map */
