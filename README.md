@@ -30,8 +30,7 @@
 
 ## Overview
 
-![screenshot](./assets/images/page.png)
-![screenshot](./assets/images/page-mobile.png)
+![screenshot](./assets/images/layout.png)
 
 This project was created to improve my ability to create responsive websites.
 
